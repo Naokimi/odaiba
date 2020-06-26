@@ -2,10 +2,12 @@
 #
 # Table name: worksheets
 #
-#  id            :bigint           not null, primary key
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
-#  work_group_id :bigint           not null
+#  id              :bigint           not null, primary key
+#  correct_content :json
+#  display_content :json
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  work_group_id   :bigint           not null
 #
 # Indexes
 #
