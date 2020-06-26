@@ -1,0 +1,3 @@
+class WorkGroupsController < ApplicationController
+
+end
