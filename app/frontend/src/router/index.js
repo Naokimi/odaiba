@@ -11,6 +11,8 @@ import DashboardStudent from "../views/students/Dashboard.vue";
 import BreakoutGroupStudent from "../views/students/BreakoutGroup.vue";
 import ClassRoomStudent from "../views/students/ClassRoom.vue";
 
+// teachers
+import BreakoutTeacher from "../views/teachers/Breakout.vue";
 Vue.use(VueRouter);
 
 const routes = [
@@ -67,6 +69,11 @@ const routes = [
     meta: {
       isLoggedIn: true,
     },
+  },
+  {
+    path: "/teachers/breakout",
+    name: "BreakoutTeacher",
+    component: BreakoutTeacher,
   },
 ];
 
