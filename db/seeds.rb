@@ -20,21 +20,29 @@ p 'creating teacher'
 
 Teacher.create!(name: Faker::Name.name)
 
+p "Finished creating #{Teacher.count} Teachers"
+
 p 'creating students'
 
 20.times do
   Student.create!(name: Faker::Name.name)
 end
 
+p "Finished creating #{Student.count} students"
+
 p 'creating classroom'
 
 Classroom.create!(teacher: Teacher.first)
+
+p "Finished creating #{Classroom.count} classroom"
 
 p 'creating work groups'
 
 (1..5).to_a.each do |number|
   WorkGroup.create!(name: "Group #{number}", video_call_code: 'abc', classroom: Classroom.first)
 end
+
+p "Finished creating #{WorkGroup.count} work groups"
 
 p 'assigning students to workgroups'
 
@@ -43,6 +51,8 @@ work_groups = WorkGroup.all
 students.each_with_index do |student, index|
   StudentWorkGroup.create!(student: student, work_group: work_groups[index / 4])
 end
+
+p 'Finished assigning students to work groups'
 
 p 'creating worksheets'
 
@@ -63,5 +73,7 @@ p 'creating worksheets'
     work_group: work_groups[number]
   )
 end
+
+p "Finished creating #{Worksheet.count} worksheets"
 
 p 'finished'
