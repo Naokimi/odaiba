@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_26_105712) do
+ActiveRecord::Schema.define(version: 2020_06_26_144528) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,10 +24,13 @@ ActiveRecord::Schema.define(version: 2020_06_26_105712) do
 
   create_table "students", force: :cascade do |t|
     t.string "name"
-    t.bigint "work_group_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["work_group_id"], name: "index_students_on_work_group_id"
+  end
+
+  create_table "students_work_groups", id: false, force: :cascade do |t|
+    t.bigint "student_id", null: false
+    t.bigint "work_group_id", null: false
   end
 
   create_table "teachers", force: :cascade do |t|
@@ -49,11 +52,12 @@ ActiveRecord::Schema.define(version: 2020_06_26_105712) do
     t.bigint "work_group_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.json "display_content"
+    t.json "correct_content"
     t.index ["work_group_id"], name: "index_worksheets_on_work_group_id"
   end
 
   add_foreign_key "classrooms", "teachers"
-  add_foreign_key "students", "work_groups"
   add_foreign_key "work_groups", "classrooms"
   add_foreign_key "worksheets", "work_groups"
 end
