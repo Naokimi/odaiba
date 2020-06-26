@@ -8,5 +8,5 @@
 #  updated_at :datetime         not null
 #
 class Student < ApplicationRecord
-  belongs_to :work_group
+  has_many :work_groups, through: :student_work_groups
 end

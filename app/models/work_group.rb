@@ -19,4 +19,6 @@
 #
 class WorkGroup < ApplicationRecord
   belongs_to :classroom
+  has_many :worksheets, dependent: :destroy
+  has_many :students, through: :student_work_groups
 end
