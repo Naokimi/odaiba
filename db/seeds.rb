@@ -41,7 +41,7 @@ p 'assigning students to workgroups'
 students = Student.all
 work_groups = WorkGroup.all
 students.each_with_index do |student, index|
-  StudentWorkGroup.create!(student: student, work_group: work_groups[index % 4])
+  StudentWorkGroup.create!(student: student, work_group: work_groups[index / 4])
 end
 
 p 'creating worksheets'
