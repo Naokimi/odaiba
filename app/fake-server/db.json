@@ -1,0 +1,49 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "name": "dzakki",
+      "work_group_id": 1
+    }
+  ],
+  "teachers": [
+    {
+      "id": 1,
+      "name": "myra"
+    }
+  ],
+  "classrooms": [
+    {
+      "id": 1,
+      "teacher_id": 1,
+      "work_groups": [
+        {
+          "id": 1,
+          "name": "learn",
+          "video_call_code": "",
+          "classrooms_id": 1,
+          "worksheets": [
+            {
+              "id": 1,
+              "work_group_id": 1
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "work_groups": [
+    {
+      "id": 1,
+      "name": "learn",
+      "video_call_code": "",
+      "classrooms_id": 1
+    }
+  ],
+  "worksheets": [
+    {
+      "id": 1,
+      "work_group_id": 1
+    }
+  ]
+}
