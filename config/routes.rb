@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
 
-  resources :classrooms do
-    resources :work_groups do
+  resources :classrooms, only: [:show] do
+    resources :work_groups, only: [:show] do
       resources :worksheets, only: [:show, :edit]
     end
   end
