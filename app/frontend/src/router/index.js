@@ -13,6 +13,7 @@ import ClassRoomStudent from "../views/students/ClassRoom.vue";
 
 // teachers
 import BreakoutTeacher from "../views/teachers/Breakout.vue";
+import DashboardTeacher from "../views/teachers/Dashboard.vue";
 Vue.use(VueRouter);
 
 const routes = [
@@ -55,14 +56,6 @@ const routes = [
     },
   },
   {
-    path: "/students/breakout-group",
-    name: "BreakoutGroupStudent",
-    component: BreakoutGroupStudent,
-    meta: {
-      isLoggedIn: true,
-    },
-  },
-  {
     path: "/students/class-room",
     name: "ClassRoomStudent",
     component: ClassRoomStudent,
@@ -71,7 +64,21 @@ const routes = [
     },
   },
   {
-    path: "/teachers/breakout",
+    path: "/teachers/dashboard",
+    name: "DashboardTeacher",
+    component: DashboardTeacher,
+  },
+  // classroom
+  {
+    path: "/classrooms/:class_id/work_groups/:work_group_id",
+    name: "BreakoutGroupStudent",
+    component: BreakoutGroupStudent,
+    meta: {
+      isLoggedIn: true,
+    },
+  },
+  {
+    path: "/classrooms/:id/work_groups/",
     name: "BreakoutTeacher",
     component: BreakoutTeacher,
   },

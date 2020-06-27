@@ -6,7 +6,8 @@ import Router from "../router";
 import classRooms from "./classRooms";
 import workGroups from "./workGroups";
 import workSheets from "./workSheets";
-import Agore from "./Agore";
+import VideoCall from "./VideoCall";
+import AudioCall from "./VideoCall";
 
 Vue.use(Vuex);
 
@@ -35,7 +36,8 @@ export default new Vuex.Store({
         localStorage.setItem("odaiba.name", "dzakki");
         localStorage.setItem("odaiba.role", payload.role);
         commit("SET_ISLOGIN", data);
-        Router.replace("/");
+        payload.cb();
+        // Router.replace("/");
       } catch ({ response }) {
         console.log(response);
         commit("SET_ERRORS", response.data.message);
@@ -46,6 +48,7 @@ export default new Vuex.Store({
     classRooms,
     workGroups,
     workSheets,
-    Agore,
+    VideoCall,
+    AudioCall,
   },
 });
