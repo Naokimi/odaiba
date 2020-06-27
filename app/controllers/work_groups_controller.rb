@@ -1,5 +1,10 @@
 class WorkGroupsController < ApplicationController
 
+  def index
+    @classroom = Classroom.find(params[:classroom_id])
+    @work_groups = WorkGroup.all
+  end
+
   def show
     @work_group = WorkGroup.find(params[:id])
     # authorize @work_group
