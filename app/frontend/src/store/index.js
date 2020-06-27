@@ -6,6 +6,7 @@ import Router from "../router";
 import classRooms from "./classRooms";
 import workGroups from "./workGroups";
 import workSheets from "./workSheets";
+import Agore from "./Agore";
 
 Vue.use(Vuex);
 
@@ -45,5 +46,6 @@ export default new Vuex.Store({
     classRooms,
     workGroups,
     workSheets,
+    Agore,
   },
 });
