@@ -3,7 +3,7 @@
     <Navbar />
 
     <div class="flex p-6">
-      <a href="#">
+      <a href="#" @click.prevent="$router.go(-1)">
         <div
           class="flex-none h-12 w-12 text-center bg-white hover:bg-gray-200 p-3 m-2 rounded-full"
         >
@@ -84,12 +84,14 @@
               </div>
               <div class="bg-white p-4 rounded-lg flex">
                 <div class="inline w-1/2">
-                  <p class="block font-semibold text-3xl">15:00</p>
+                  <TimerCountdown :duration="group.session_time" />
+                  <!-- <p class="block font-semibold text-3xl">15:00</p> -->
                   <p class="block text-gray-500">Group Session</p>
                 </div>
                 <div class="inline w-1/2">
-                  <p class="block font-semibold text-3xl">05:00</p>
-                  <p class="block text-gray-500">Audrey's Turn</p>
+                  <TimerCountdown :duration="group.turn_time" />
+                  <!-- <p class="block font-semibold text-3xl">05:00</p> -->
+                  <p class="block text-gray-500">{{ turn }} Turn</p>
                 </div>
               </div>
             </div>
@@ -102,43 +104,16 @@
               <div class="bg-white rounded-lg">
                 <div
                   class="block w-full bg-gray-200 px-4 py-3 text-left items-center mb-2"
+                  v-for="member in members"
+                  :key="member.id"
                 >
                   <img
                     class="w-8 mr-4 bg-white rounded-full inline"
                     src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/c3fa12ba-dbc1-4c80-bb2b-efcb1e8a4273/icons8-finn-96.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20200626%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20200626T110244Z&X-Amz-Expires=86400&X-Amz-Signature=0fc60a68d61741cfb3b9aac08959cbcd5c8b25db5f409fdadc98ccf77b3a778c&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22icons8-finn-96.png%22"
                     alt="student-avatar"
                   />
-                  <p class="text-lg inline">Audrey</p>
-                </div>
-                <div
-                  class="block w-full bg-gray-200 px-4 py-3  text-left items-center mb-2"
-                >
-                  <img
-                    class="w-8 mr-4 bg-white rounded-full inline"
-                    src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/c3fa12ba-dbc1-4c80-bb2b-efcb1e8a4273/icons8-finn-96.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20200626%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20200626T110244Z&X-Amz-Expires=86400&X-Amz-Signature=0fc60a68d61741cfb3b9aac08959cbcd5c8b25db5f409fdadc98ccf77b3a778c&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22icons8-finn-96.png%22"
-                    alt="student-avatar"
-                  />
-                  <p class="text-lg inline">Benson</p>
-                </div>
-                <div
-                  class="block w-full bg-gray-200 px-4 py-3  text-left items-center mb-2"
-                >
-                  <img
-                    class="w-8 mr-4 bg-white rounded-full inline"
-                    src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/c3fa12ba-dbc1-4c80-bb2b-efcb1e8a4273/icons8-finn-96.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20200626%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20200626T110244Z&X-Amz-Expires=86400&X-Amz-Signature=0fc60a68d61741cfb3b9aac08959cbcd5c8b25db5f409fdadc98ccf77b3a778c&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22icons8-finn-96.png%22"
-                    alt="student-avatar"
-                  />
-                  <p class="text-lg inline">Carly</p>
-                </div>
-                <div
-                  class="block w-full bg-gray-200 px-4 py-3  text-left items-center mb-2"
-                >
-                  <img
-                    class="w-8 mr-4 bg-white rounded-full inline"
-                    src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/c3fa12ba-dbc1-4c80-bb2b-efcb1e8a4273/icons8-finn-96.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20200626%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20200626T110244Z&X-Amz-Expires=86400&X-Amz-Signature=0fc60a68d61741cfb3b9aac08959cbcd5c8b25db5f409fdadc98ccf77b3a778c&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22icons8-finn-96.png%22"
-                    alt="student-avatar"
-                  />
-                  <p class="text-lg inline">Darwin</p>
+                  <p class="text-lg inline">{{ member.name }}</p>
+                  <p>{{ member.join ? "joiner" : "" }}</p>
                 </div>
               </div>
             </div>
@@ -171,8 +146,9 @@
 import Navbar from "@/components/Navbar.vue";
 import AaudioBreakoutRoom from "@/components/AaudioBreakoutRoom.vue";
 import InputAnswer from "@/components/InputAnswer.vue";
+import TimerCountdown from "@/components/TimerCountdown.vue";
 
-import { mapActions, mapState } from "vuex";
+import { mapActions, mapState, mapMutations } from "vuex";
 
 export default {
   name: "BreakoutGroup",
@@ -183,24 +159,61 @@ export default {
     Navbar,
     AaudioBreakoutRoom,
     InputAnswer,
+    TimerCountdown,
   },
   computed: {
-    ...mapState("workSheets", ["sheets", "count"]),
+    ...mapState("workSheets", ["sheets", "count", "group"]),
+    members() {
+      if (!this.group) return [];
+      const membersTemp = [];
+      this.group.users.forEach((user) => {
+        if (!user.isTeacher) {
+          membersTemp.push(user);
+        }
+      });
+      return membersTemp;
+    },
+    turn() {
+      if (!this.group) return "";
+      let turnTemp;
+      this.group.users.forEach((user) => {
+        if (user.turn) {
+          turnTemp = user.name;
+        }
+      });
+      return turnTemp;
+    },
   },
   methods: {
-    ...mapActions("workSheets", ["getWorkSheets", "UpdateAnswer", "NewQuestion", "UpdateQuestion"]),
+    ...mapActions("workSheets", [
+      "getWorkSheets",
+      "UpdateAnswer",
+      "NewQuestion",
+      "UpdateQuestion",
+      "GetGroups",
+      "ListenGroups",
+    ]),
+    ...mapMutations("workSheets", ["SET_GROUPID"]),
     answerQ() {
       //answer question
     },
     newQ() {
       // new question
       this.NewQuestion();
-    }
+    },
   },
   created() {
-    this.getWorkSheets(1);
+    this.SET_GROUPID(this.$route.params.work_group_id);
+    this.ListenGroups();
+    this.getWorkSheets();
     this.UpdateAnswer();
     this.UpdateQuestion(); // get new qeustion from api
+    this.GetGroups();
+  },
+  watch: {
+    $route() {
+      this.SET_GROUPID(this.$route.params.work_group_id);
+    },
   },
 };
 </script>

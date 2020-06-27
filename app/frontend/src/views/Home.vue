@@ -18,8 +18,8 @@
         <router-link to="/students/dashboard">/students/dashboard</router-link>
       </li>
       <li>
-        <router-link to="/students/class-room"
-          >/students/class-room</router-link
+        <router-link to="/students/classroom/1"
+          >/students/classroom/:id</router-link
         >
       </li>
       <li>

@@ -56,7 +56,7 @@ const routes = [
     },
   },
   {
-    path: "/students/class-room",
+    path: "/students/classroom/:id",
     name: "ClassRoomStudent",
     component: ClassRoomStudent,
     meta: {

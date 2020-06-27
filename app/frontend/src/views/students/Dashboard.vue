@@ -269,7 +269,10 @@
               <p class="block">Class B</p>
               <p class="block">Ms Tachibana</p>
             </div>
-            <button class="inline bg-teal-500 hover:bg-teal-400 focus:outline-none focus:shadow-outline-none text-white text-sm font-bold py-2 px-6 mt-2 rounded items-center">
+            <button 
+              class="inline bg-teal-500 hover:bg-teal-400 focus:outline-none focus:shadow-outline-none text-white text-sm font-bold py-2 px-6 mt-2 rounded items-center"
+              @click.prevent="$router.push(`/students/classroom/1`)"
+            >
               <span>Join Class</span>
             </button>
           </div>
