@@ -9,8 +9,9 @@ require 'faker'
 
 p 'emptying database'
 
-Worksheet.destroy_all
 StudentWorkGroup.destroy_all
+GroupWorkSheet.destroy_all
+Worksheet.destroy_all
 WorkGroup.destroy_all
 Classroom.destroy_all
 Student.destroy_all
@@ -82,11 +83,20 @@ p 'creating worksheets'
       1 => ['hashiru', 'run', 'ran', 'run'],
       2 => ['iu', 'say', 'said', 'said']
     }.to_json,
-    work_group: work_groups[number],
-    name: "Past Tense #{{number + 1}}"
+    name: "Past Tense #{number + 1}"
   )
 end
 
 p "Finished creating #{Worksheet.count} worksheets"
+
+p 'assigning worksheets to work groups'
+
+worksheets = Worksheet.all
+work_groups = WorkGroup.all
+worksheets.each_with_index do |worksheet, index|
+  GroupWorkSheet.create!(worksheet: worksheet, work_group: work_groups[index])
+end
+
+p 'Finished assigning worksheets to work groups'
 
 p 'finished'
