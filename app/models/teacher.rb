@@ -8,4 +8,5 @@
 #  updated_at :datetime         not null
 #
 class Teacher < ApplicationRecord
+  has_many :classrooms
 end
