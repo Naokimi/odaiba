@@ -57,6 +57,20 @@
                     </tr>
                   </tbody>
                 </table>
+
+                <button
+                  v-if="count <= 5"
+                  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-3"
+                  @click="newQ"
+                >
+                  More Tasks
+                </button>
+                <button
+                  v-if="count > 5"
+                  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-3"
+                >
+                  Submit!
+                </button>
               </div>
             </div>
           </div>
@@ -171,17 +185,22 @@ export default {
     InputAnswer,
   },
   computed: {
-    ...mapState("workSheets", ["sheets"]),
+    ...mapState("workSheets", ["sheets", "count"]),
   },
   methods: {
-    ...mapActions("workSheets", ["getWorkSheets", "UpdateAnswer"]),
+    ...mapActions("workSheets", ["getWorkSheets", "UpdateAnswer", "NewQuestion", "UpdateQuestion"]),
     answerQ() {
       //answer question
     },
+    newQ() {
+      // new question
+      this.NewQuestion();
+    }
   },
   created() {
     this.getWorkSheets(1);
     this.UpdateAnswer();
+    this.UpdateQuestion(); // get new qeustion from api
   },
 };
 </script>

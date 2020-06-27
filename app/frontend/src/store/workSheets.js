@@ -6,10 +6,12 @@ export default {
   namespaced: true,
   state: {
     sheets: [],
+    count: 1
   },
   mutations: {
     SET_SHEETS(state, payload) {
       this.sheets = payload;
+      state.count++
     },
     INPUT_ANSWER(state, payload) {
       /* {
@@ -28,11 +30,11 @@ export default {
     },
   },
   actions: {
-    getWorkSheets({ state, commit }, id) {
-      if (id > 6) {
+    getWorkSheets({ state, commit }) {
+      if (state.count > 5) {
         return;
       }
-      Axios.get(`/classrooms/2/work_groups/2/worksheets/${id}.json`)
+      Axios.get(`/classrooms/2/work_groups/2/worksheets/${state.count}.json`)
         .then(({ data }) => {
           const sheets = state.sheets;
           // console.log(JSON.parse(data.display_content));
@@ -73,6 +75,15 @@ export default {
         commit("INPUT_ANSWER", response);
       });
     },
+    NewQuestion({ dispatch }) {
+      dispatch("getWorkSheets")
+      socket.emit("newQ");
+    },
+    UpdateQuestion({ dispatch }) {
+      socket.on("newQ", function () {
+        dispatch("getWorkSheets");
+      })
+    }
   },
 };
 
