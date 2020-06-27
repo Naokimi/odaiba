@@ -49,7 +49,7 @@ p 'creating work groups'
     name: "Group #{number}",
     video_call_code: 'abc',
     classroom: Classroom.first,
-    time_limit: 12
+    time_limit: 12,
     rotation_time: 3
     )
 end
