@@ -8,6 +8,9 @@ class WorkGroupsController < ApplicationController
   def show
     @work_group = WorkGroup.find(params[:id])
     # authorize @work_group
+    respond_to do |format|
+      format.json { render json: @work_group.to_json }
+    end
   end
 
 
