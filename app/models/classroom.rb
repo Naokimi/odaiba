@@ -17,5 +17,7 @@
 #
 class Classroom < ApplicationRecord
   belongs_to :teacher
+
   has_many :work_groups, dependent: :destroy
+  has_many :students, through: :work_groups
 end
