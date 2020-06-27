@@ -20,6 +20,7 @@ class WorksheetsController < ApplicationController
       # TODO redirect using JSON ?
     else
       render :edit
+    end
   end
 
   private
