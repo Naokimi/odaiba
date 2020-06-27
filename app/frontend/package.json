@@ -7,6 +7,7 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "agora-access-token": "^2.0.4",
     "agora-rtc-sdk": "^3.1.1",
     "axios": "^0.19.2",
     "core-js": "^3.6.5",

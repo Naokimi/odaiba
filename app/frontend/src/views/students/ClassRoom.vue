@@ -10,6 +10,13 @@
         >
           JOIN
         </button>
+        <button
+          class="btn btn-raised btn-primary waves-effect waves-light"
+          id="leave"
+          @click="leave"
+        >
+          leave
+        </button>
         <!--         <button
           class="btn btn-raised btn-primary waves-effect waves-light"
           id="join"
@@ -19,11 +26,13 @@
         </button> -->
       </div>
     </div>
-    <div class="video-grid" id="video">
-      <div class="video-view">
-        <div id="local_stream" class="video-placeholder"></div>
-        <div id="local_video_info" class="video-profile hide"></div>
-        <div id="video_autoplay_local" class="autoplay-fallback hide"></div>
+    <div class="agora-theme">
+      <div class="video-grid" id="video">
+        <div class="video-view">
+          <div id="local_stream" class="video-placeholder"></div>
+          <div id="local_video_info" class="video-profile hide"></div>
+          <div id="video_autoplay_local" class="autoplay-fallback hide"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -48,7 +57,7 @@ export default {
     ...mapState("Agore", ["option"]),
   },
   methods: {
-    ...mapActions("Agore", ["getDevices", "join"]),
+    ...mapActions("Agore", ["getDevices", "join", "leave"]),
     joinRoom() {
       this.join();
     },
@@ -74,8 +83,63 @@ export default {
 </script>
 
 <style lang="css" scoped>
-#local_stream {
-  height: 400px;
-  width: 400px;
+.agora-theme #local_stream {
+  position: relative;
+}
+
+.agora-theme #local_video_info {
+  position: absolute;
+}
+
+.agora-theme .video-view {
+  position: relative;
+}
+
+.agora-theme .video-view,
+.agora-theme .video-placeholder,
+.agora-theme #local_stream,
+.agora-theme #local_video_info {
+  width: 480px;
+  height: 320px;
+}
+
+.agora-theme .video-profile {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  z-index: 2;
+  color: #fff;
+  opacity: 0.9;
+  text-shadow: black 0.1em 0.1em 0.2em;
+  font-size: 10px;
+}
+
+.agora-theme .video-grid {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: auto;
+}
+
+.agora-theme .autoplay-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  display: block;
+  cursor: pointer;
+}
+.agora-theme .autoplay-fallback::after {
+  content: "click here to play";
+  font-size: 1.5rem;
+  opacity: 0.9;
+  text-shadow: black 0.1em 0.1em 0.2em;
+  display: block;
+  color: #fff;
 }
 </style>

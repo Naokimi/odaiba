@@ -1,5 +1,6 @@
 import Axios from "axios";
 import AgoraRTC from "agora-rtc-sdk";
+// import generateToken from "../helpers/generate_access_token";
 
 export default {
   namespaced: true,
@@ -7,6 +8,10 @@ export default {
     option: {
       appID: "e11c6335df4e414f9ccaf06641ec18f4",
       channel: "1",
+      // token:
+      //   "006facc2f66a4394574a83a612d93852cb9IAC+HrPAAG3NYrYhG7SokgyIujHQMk+64uAXzidazLAl7yo6c+RXoFHlIgCZSlYvXCn4XgQAAQDs5fZeAgDs5fZeAwDs5fZeBADs5fZe",
+      // token:
+      //   "006facc2f66a4394574a83a612d93852cb9IABxBXb7J5dQ6CPrMxjzDi91OhHt8g/pkOyjh/gao00zPyo6c+RXoFHlIgDhFPw9ryj4XgQAAQA/5fZeAgA/5fZeAwA/5fZeBAA/5fZe",
       token:
         "006e11c6335df4e414f9ccaf06641ec18f4IACBfq8QcnkfTtsNpOVfSPg6RK3+VY65JybOtjj1teL4Zrfv3IMAAAAAEACzAjOTFxb4XgEAAQAXFvhe",
       uid: "",
@@ -39,27 +44,27 @@ export default {
     },
     addView(_, payload) {
       console.log(payload, "====================");
-      const { id, show } = payload;
-      if (!$("#" + id)[0]) {
+      // const { id, show } = payload;
+      if (!$("#" + payload)[0]) {
         $("<div/>", {
-          id: "remote_video_panel_" + id,
+          id: "remote_video_panel_" + payload,
           class: "video-view",
         }).appendTo("#video");
 
         $("<div/>", {
-          id: "remote_video_" + id,
+          id: "remote_video_" + payload,
           class: "video-placeholder",
-        }).appendTo("#remote_video_panel_" + id);
+        }).appendTo("#remote_video_panel_" + payload);
 
         $("<div/>", {
-          id: "remote_video_info_" + id,
-          class: "video-profile " + (show ? "" : "hide"),
-        }).appendTo("#remote_video_panel_" + id);
+          id: "remote_video_info_" + payload,
+          class: "video-profile " + (payload.show ? "" : "hide"),
+        }).appendTo("#remote_video_panel_" + payload);
 
         $("<div/>", {
-          id: "video_autoplay_" + id,
+          id: "video_autoplay_" + payload,
           class: "autoplay-fallback hide",
-        }).appendTo("#remote_video_panel_" + id);
+        }).appendTo("#remote_video_panel_" + payload);
       }
     },
 
