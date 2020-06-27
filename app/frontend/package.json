@@ -11,6 +11,8 @@
     "agora-rtc-sdk": "^3.1.1",
     "axios": "^0.19.2",
     "core-js": "^3.6.5",
+    "engine.io-client": "^3.4.3",
+    "socket.io-client": "^2.3.0",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
     "vuex": "^3.4.0"
