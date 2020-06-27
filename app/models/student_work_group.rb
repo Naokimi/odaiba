@@ -19,6 +19,6 @@
 #  fk_rails_...  (work_group_id => work_groups.id)
 #
 class StudentWorkGroup < ApplicationRecord
-  belongs_to :student_id
-  belongs_to :work_group_id
+  belongs_to :student
+  belongs_to :work_group
 end
