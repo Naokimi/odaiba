@@ -2,7 +2,7 @@
   <div>
     <Navbar />
     <div class="flex p-6">
-      <a href="#">
+      <a @click.prevent="$router.go(-1)">
         <div class="flex-none h-12 w-12 text-center bg-white hover:bg-gray-200 p-3 m-2 rounded-full">
           <i class="fas fa-reply text-gray-700"></i>
         </div>
@@ -82,11 +82,13 @@
 
       </div>
     </div>
+    <AaudioBreakoutRoom/>
   </div>
 </template>
 
 <script>
 import Navbar from "@/components/Navbar.vue";
+import AaudioBreakoutRoom  from "@/components/AaudioBreakoutRoom.vue"
 
 export default {
   name: "BreakoutGroup",
@@ -94,7 +96,8 @@ export default {
     return {};
   },
   components: {
-    Navbar
+    Navbar,
+    AaudioBreakoutRoom
   }
 };
 </script>
