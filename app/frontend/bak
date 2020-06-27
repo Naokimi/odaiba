@@ -1,0 +1,189 @@
+<tr>
+                      <td class="border px-4 py-4">2</td>
+                      <td class="border px-4 py-4">走る</td>
+                      <td class="border px-4 py-4">run</td>
+                      <td class="border px-4 py-4">
+                        <input
+                          class="appearance-none bg-transparent border-b border-b-2 border-gray-400 focus:border-b-2 focus:border-orange-500 w-full text-center text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+                          type="text"
+                          placeholder="Write your answer"
+                          aria-label="Answer"
+                        />
+                      </td>
+                      <td class="border px-4 py-4">
+                        <input
+                          class="appearance-none bg-transparent border-b border-b-2 border-gray-400 focus:border-b-2 focus:border-orange-500 w-full text-center text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+                          type="text"
+                          placeholder="Write your answer"
+                          aria-label="Answer"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="border px-4 py-4">3</td>
+                      <td class="border px-4 py-4">言う・話す</td>
+                      <td class="border px-4 py-4">say</td>
+                      <td class="border px-4 py-4">
+                        <input
+                          class="appearance-none bg-transparent border-b border-b-2 border-gray-400 focus:border-b-2 focus:border-orange-500 w-full text-center text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+                          type="text"
+                          placeholder="Write your answer"
+                          aria-label="Answer"
+                        />
+                      </td>
+                      <td class="border px-4 py-4">
+                        <input
+                          class="appearance-none bg-transparent border-b border-b-2 border-gray-400 focus:border-b-2 focus:border-orange-500 w-full text-center text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+                          type="text"
+                          placeholder="Write your answer"
+                          aria-label="Answer"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="border px-4 py-4">4</td>
+                      <td class="border px-4 py-4">見る</td>
+                      <td class="border px-4 py-4">see</td>
+                      <td class="border px-4 py-4">
+                        <input
+                          class="appearance-none bg-transparent border-b border-b-2 border-gray-400 focus:border-b-2 focus:border-orange-500 w-full text-center text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+                          type="text"
+                          placeholder="Write your answer"
+                          aria-label="Answer"
+                        />
+                      </td>
+                      <td class="border px-4 py-4">
+                        <input
+                          class="appearance-none bg-transparent border-b border-b-2 border-gray-400 focus:border-b-2 focus:border-orange-500 w-full text-center text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+                          type="text"
+                          placeholder="Write your answer"
+                          aria-label="Answer"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="border px-4 py-4">5</td>
+                      <td class="border px-4 py-4">売る</td>
+                      <td class="border px-4 py-4">sell</td>
+                      <td class="border px-4 py-4">
+                        <input
+                          class="appearance-none bg-transparent border-b border-b-2 border-gray-400 focus:border-b-2 focus:border-orange-500 w-full text-center text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+                          type="text"
+                          placeholder="Write your answer"
+                          aria-label="Answer"
+                        />
+                      </td>
+                      <td class="border px-4 py-4">
+                        <input
+                          class="appearance-none bg-transparent border-b border-b-2 border-gray-400 focus:border-b-2 focus:border-orange-500 w-full text-center text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+                          type="text"
+                          placeholder="Write your answer"
+                          aria-label="Answer"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="border px-4 py-4">6</td>
+                      <td class="border px-4 py-4">送る</td>
+                      <td class="border px-4 py-4">send</td>
+                      <td class="border px-4 py-4">
+                        <input
+                          class="appearance-none bg-transparent border-b border-b-2 border-gray-400 focus:border-b-2 focus:border-orange-500 w-full text-center text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+                          type="text"
+                          placeholder="Write your answer"
+                          aria-label="Answer"
+                        />
+                      </td>
+                      <td class="border px-4 py-4">
+                        <input
+                          class="appearance-none bg-transparent border-b border-b-2 border-gray-400 focus:border-b-2 focus:border-orange-500 w-full text-center text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+                          type="text"
+                          placeholder="Write your answer"
+                          aria-label="Answer"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="border px-4 py-4">7</td>
+                      <td class="border px-4 py-4">歌う</td>
+                      <td class="border px-4 py-4">sing</td>
+                      <td class="border px-4 py-4">
+                        <input
+                          class="appearance-none bg-transparent border-b border-b-2 border-gray-400 focus:border-b-2 focus:border-orange-500 w-full text-center text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+                          type="text"
+                          placeholder="Write your answer"
+                          aria-label="Answer"
+                        />
+                      </td>
+                      <td class="border px-4 py-4">
+                        <input
+                          class="appearance-none bg-transparent border-b border-b-2 border-gray-400 focus:border-b-2 focus:border-orange-500 w-full text-center text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+                          type="text"
+                          placeholder="Write your answer"
+                          aria-label="Answer"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="border px-4 py-4">8</td>
+                      <td class="border px-4 py-4">座る</td>
+                      <td class="border px-4 py-4">sit</td>
+                      <td class="border px-4 py-4">
+                        <input
+                          class="appearance-none bg-transparent border-b border-b-2 border-gray-400 focus:border-b-2 focus:border-orange-500 w-full text-center text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+                          type="text"
+                          placeholder="Write your answer"
+                          aria-label="Answer"
+                        />
+                      </td>
+                      <td class="border px-4 py-4">
+                        <input
+                          class="appearance-none bg-transparent border-b border-b-2 border-gray-400 focus:border-b-2 focus:border-orange-500 w-full text-center text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+                          type="text"
+                          placeholder="Write your answer"
+                          aria-label="Answer"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="border px-4 py-4">9</td>
+                      <td class="border px-4 py-4">話す</td>
+                      <td class="border px-4 py-4">speak</td>
+                      <td class="border px-4 py-4">
+                        <input
+                          class="appearance-none bg-transparent border-b border-b-2 border-gray-400 focus:border-b-2 focus:border-orange-500 w-full text-center text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+                          type="text"
+                          placeholder="Write your answer"
+                          aria-label="Answer"
+                        />
+                      </td>
+                      <td class="border px-4 py-4">
+                        <input
+                          class="appearance-none bg-transparent border-b border-b-2 border-gray-400 focus:border-b-2 focus:border-orange-500 w-full text-center text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+                          type="text"
+                          placeholder="Write your answer"
+                          aria-label="Answer"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="border px-4 py-4">10</td>
+                      <td class="border px-4 py-4">寝る</td>
+                      <td class="border px-4 py-4">sleep</td>
+                      <td class="border px-4 py-4">
+                        <input
+                          class="appearance-none bg-transparent border-b border-b-2 border-gray-400 focus:border-b-2 focus:border-orange-500 w-full text-center text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+                          type="text"
+                          placeholder="Write your answer"
+                          aria-label="Answer"
+                        />
+                      </td>
+                      <td class="border px-4 py-4">
+                        <input
+                          class="appearance-none bg-transparent border-b border-b-2 border-gray-400 focus:border-b-2 focus:border-orange-500 w-full text-center text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+                          type="text"
+                          placeholder="Write your answer"
+                          aria-label="Answer"
+                        />
+                      </td>
+                    </tr>
