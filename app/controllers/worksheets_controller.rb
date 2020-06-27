@@ -2,7 +2,7 @@ class WorksheetsController < ApplicationController
 
   def show
     @worksheet = Worksheet.find(params[:id])
-     # authorize @worksheet
+    # authorize @worksheet
     respond_to do |format|
       # FYI - Test on local host with: http://localhost:3000/classrooms/1/work_groups/1/worksheets/1.json
       format.json { render json: @worksheet.to_json }
