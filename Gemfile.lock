@@ -122,6 +122,8 @@ GEM
     puma (4.3.5)
       nio4r (~> 2.0)
     rack (2.2.3)
+    rack-cors (1.1.1)
+      rack (>= 2.0.0)
     rack-proxy (0.6.5)
       rack
     rack-test (1.1.0)
@@ -240,6 +242,7 @@ DEPENDENCIES
   pry-byebug
   pry-rails
   puma (~> 4.1)
+  rack-cors
   rails (~> 6.0.3, >= 6.0.3.2)
   rspec
   sass-rails (>= 6)
@@ -256,7 +259,7 @@ DEPENDENCIES
   whenever
 
 RUBY VERSION
-   ruby 2.6.3p62
+   ruby 2.5.1p57
 
 BUNDLED WITH
    2.1.4
