@@ -1,71 +1,70 @@
 <template>
   <div>
     <Navbar />
-      <div class="flex w-full text-gray-700 text-center m-2 p-6 px-16">
-
-    <div class="w-8/12 px-4">
-      <div class="bg-white p-6 rounded-lg">
-
-        <div class="my-classrooms w-full mb-6">
-
-          <div class="flex justify-between items-center mb-4">
-            <div class="w-64 bg-gray-900 rounded-full text-white px-8 py-2 text-lg font-semibold">
-              English
+    <div class="flex w-full text-gray-700 text-center m-2 p-6 px-16">
+      <div class="w-8/12 px-4">
+        <div class="bg-white p-6 rounded-lg">
+          <div class="my-classrooms w-full mb-6">
+            <div class="flex justify-between items-center mb-4">
+              <div
+                class="w-64 bg-gray-900 rounded-full text-white px-8 py-2 text-lg font-semibold"
+              >
+                English
+              </div>
+              <hr class="w-full border border-gray-300" />
             </div>
-            <hr class="w-full border border-gray-300">
-          </div>
 
-          <div class="flex flex-wrap -mx-2">
-
-            <div class="w-1/3 px-2 mb-4">
-              <a class="flex" href="#">
-                <div class="inline h-auto w-2 text-lg rounded-lg rounded-r-none bg-blue-400"></div>
-                <div class="inline w-full bg-gray-100 p-2 text-left rounded hover:shadow-md">
-                  <div class="px-3 py-2">
-                    <p class="inline-block text-lg font-semibold mb-1">English</p>
-                    <div class="block text-sm text-gray-600">
-                      <p class="block">Class B</p>
-                      <p class="block">Ms Tachibana</p>
+            <div class="flex flex-wrap -mx-2">
+              <div class="w-1/3 px-2 mb-4">
+                <a class="flex" href="#">
+                  <div
+                    class="inline h-auto w-2 text-lg rounded-lg rounded-r-none bg-blue-400"
+                  ></div>
+                  <div
+                    class="inline w-full bg-gray-100 p-2 text-left rounded hover:shadow-md"
+                  >
+                    <div class="px-3 py-2">
+                      <p class="inline-block text-lg font-semibold mb-1">
+                        English
+                      </p>
+                      <div class="block text-sm text-gray-600">
+                        <p class="block">Class B</p>
+                        <p class="block">Ms Tachibana</p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </a>
+                </a>
+              </div>
             </div>
-
           </div>
-
-        </div>
-
-      </div>
-    </div>
-
-
-    <div class="w-4/12 px-4">
-
-      <div class="block bg-orange-500 p-3 rounded-lg mb-6" style="background-color: #F98436">
-        <div class="font-semibold text-xl text-white mb-2">
-          <h4>Your Group Session</h4>
-        </div>
-        <div class="bg-white p-4 rounded-lg">
-          <div class="block w-full flex justify-between mb-2 text-xl">
-            <p class="inline font-semibold">English</p>
-            <p class="inline font-semibold">10:30am</p>
-          </div>
-          <div class="block w-full flex justify-between">
-
-            <button 
-              class="inline bg-teal-500 hover:bg-teal-400 focus:outline-none focus:shadow-outline-none text-white text-sm font-bold py-2 px-6 mt-2 rounded items-center"
-              @click.prevent="$router.push(`/classrooms/1/work_groups/1`)"
-            >
-              <span>Join Class</span>
-            </button>
-          </div>
-
         </div>
       </div>
 
+      <div class="w-4/12 px-4">
+        <div
+          class="block bg-orange-500 p-3 rounded-lg mb-6"
+          style="background-color: #F98436"
+        >
+          <div class="font-semibold text-xl text-white mb-2">
+            <h4>Your Group Session</h4>
+          </div>
+          <div class="bg-white p-4 rounded-lg">
+            <div class="block w-full flex justify-between mb-2 text-xl">
+              <p class="inline font-semibold">English</p>
+              <p class="inline font-semibold">10:30am</p>
+            </div>
+            <div class="block w-full flex justify-between">
+              <button
+                class="inline bg-teal-500 hover:bg-teal-400 focus:outline-none focus:shadow-outline-none text-white text-sm font-bold py-2 px-6 mt-2 rounded items-center"
+                @click.prevent="$router.push(`/classrooms/1/work_groups/1`)"
+              >
+                <span>Join Group</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
 
     <div class="row">
       <div class="col">
