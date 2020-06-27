@@ -3,6 +3,9 @@ class WorksheetsController < ApplicationController
   def show
     @worksheet = Worksheet.find(params[:id])
      # authorize @worksheet
+     respond_to do |format|
+        format.json { render json: @worksheet.to_json }
+      end
   end
 
   def edit
@@ -17,7 +20,9 @@ class WorksheetsController < ApplicationController
     @work_group = WorkGroup.find(params[:work_group])
     @worksheet = Worksheet.find(params[:id])
     if @worksheet.update(worksheet_params)
-      # TODO redirect using JSON ?
+      respond_to do |format|
+        format.json { render json: @worksheet.to_json }
+      end
     else
       render :edit
     end
