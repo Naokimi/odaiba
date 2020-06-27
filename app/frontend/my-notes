@@ -1,1 +1,26 @@
 telpon bakal aku watch di created app
+
+
+[
+  sheet: {
+    questions: [
+      ["hashiru", "run", false, false],
+      ["iu", "say", false, false]
+    ],
+    answers: [
+       ["hashiru", "run", "ran", "run"]
+       ["iu", "say", "said", "said"]
+    ]
+  }
+]
+
+[
+  {
+    questions: ["hashiru", "run", false, false],
+    answers: ["hashiru", "run", "ran", "run"]
+  },
+  {
+    questions: ["iu", "say", false, false],
+    answers:  ["hashiru", "run", "ran", "run"]
+  },
+]
