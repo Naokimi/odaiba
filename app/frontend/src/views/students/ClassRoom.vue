@@ -41,7 +41,6 @@
 <script>
 import Navbar from "@/components/Navbar.vue";
 import AgoraRTC from "agora-rtc-sdk";
-import "@/assets/common.css";
 
 import { mapActions, mapState } from "vuex";
 
@@ -54,10 +53,10 @@ export default {
     return {};
   },
   computed: {
-    ...mapState("Agore", ["option"]),
+    ...mapState("VideoCall", ["option"]),
   },
   methods: {
-    ...mapActions("Agore", ["getDevices", "join", "leave"]),
+    ...mapActions("VideoCall", ["getDevices", "join", "leave"]),
     joinRoom() {
       this.join();
     },
@@ -83,6 +82,8 @@ export default {
 </script>
 
 <style lang="css" scoped>
+/*@import "../../assets/common.css";*/
+
 .agora-theme #local_stream {
   position: relative;
 }
@@ -117,7 +118,7 @@ export default {
 }
 
 .agora-theme .video-grid {
-  display: grid;
+  display: flex;
   grid-gap: 20px;
   grid-template-columns: repeat(2, auto);
   grid-template-rows: auto;
