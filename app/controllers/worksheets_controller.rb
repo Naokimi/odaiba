@@ -3,12 +3,20 @@ class WorksheetsController < ApplicationController
   def show
     @worksheet = Worksheet.find(params[:id])
      # authorize @worksheet
+    respond_to do |format|
+      format.json { render json: @worksheet.to_json }
+    end
+
   end
 
   def edit
     @classroom = Classroom.find(params[:classroom_id])
-    @work_group = WorkGroup.find(params[:work_group])
+    @work_group = WorkGroup.find(params[:work_group_id])
     @worksheet = Worksheet.find(params[:id])
+
+    respond_to do |format|
+      format.json { render json: @worksheet.to_json }
+    end
   end
 
 
