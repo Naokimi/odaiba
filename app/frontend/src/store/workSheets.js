@@ -6,12 +6,33 @@ export default {
   namespaced: true,
   state: {
     sheets: [],
-    count: 1
+    count: 1,
+    group: {
+      id: 1,
+      name: "....",
+      video_call_code: "...",
+      turn_time: 60 * 5,
+      session_time: 60 * 15,
+      status: "onprogress",
+      users: [],
+      classroom_id: 1,
+      score: 0,
+      answered: 0,
+      sheets: [],
+    },
+    groupid: null,
   },
   mutations: {
+    SET_GROUPID(state, payload) {
+      state.groupid = payload;
+    },
     SET_SHEETS(state, payload) {
       this.sheets = payload;
-      state.count++
+      socket.emit("updateSheet", {
+        sheets: state.sheets,
+        groupid: state.groupid,
+      });
+      state.count++;
     },
     INPUT_ANSWER(state, payload) {
       /* {
@@ -20,13 +41,20 @@ export default {
         code: code == `verb-2` ? 2 : 3,
         idQuestion
       }*/
-      console.log(payload)
+      console.log(payload);
       let sheetsTemp = JSON.stringify(state.sheets);
       sheetsTemp = JSON.parse(sheetsTemp);
       console.log(sheetsTemp);
       sheetsTemp[payload.indexArray].questions[payload.code] = payload.answer;
       // sheetsTemp[payload.indexArray].idKey = Math.random()
-      state.sheets = sheetsTemp
+      state.sheets = sheetsTemp;
+      socket.emit("updateSheet", {
+        sheets: state.sheets,
+        groupid: state.groupid,
+      });
+    },
+    SET_GROUP(state, payload) {
+      state.group = payload;
     },
   },
   actions: {
@@ -48,13 +76,13 @@ export default {
               questions: questions[1],
               answers: answers[1],
               id: data.id,
-              idKey: Math.random()
+              idKey: Math.random(),
             },
             {
               questions: questions[2],
               answers: answers[2],
               id: data.id,
-              idKey: Math.random()
+              idKey: Math.random(),
             },
           ];
           // console.log(sheet);
@@ -76,26 +104,46 @@ export default {
       });
     },
     NewQuestion({ dispatch }) {
-      dispatch("getWorkSheets")
+      dispatch("getWorkSheets");
       socket.emit("newQ");
     },
     UpdateQuestion({ dispatch }) {
-      socket.on("newQ", function () {
+      socket.on("newQ", function() {
         dispatch("getWorkSheets");
-      })
-    }
+      });
+    },
+    GetGroups() {
+      socket.emit("getGroups", localStorage.getItem("odaiba.name"));
+    },
+    ListenGroups({ commit, state }) {
+      socket.on(localStorage.getItem("odaiba.name"), function(response) {
+        console.log(response);
+
+        const indexGroup = response.findIndex(function(r) {
+          return r.id === Number(state.groupid);
+        });
+        console.log(indexGroup);
+        commit("SET_GROUP", response[indexGroup]);
+      });
+    },
   },
 };
 
-// [
+/* [
 //   sheet: {
 //     questions: [
 //       ["hashiru", "run", false, false],
 //       ["iu", "say", false, false]
 //     ],
+//     answered: {
+         1: false,
+         2: false,
+         3: false,
+         4: false,
+//     }
 //     answers: [
 //        ["hashiru", "run", "ran", "run"]
 //        ["iu", "say", "said", "said"]
 //     ]
 //   }
-// ]
+ ]*/

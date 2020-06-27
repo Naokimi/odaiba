@@ -169,214 +169,7 @@
 
         <div class="">
           <div class="flex flex-wrap -mx-2">
-            <div class="w-1/3 px-2 mb-4">
-              <a href="#">
-                <div class="bg-white p-2 rounded hover:shadow-md">
-                  <div class="bg-gray-300 rounded w-full p-3 h-48">
-                    <p class="text-center">Video goes here</p>
-                  </div>
-                  <div class="px-3 py-2">
-                    <p class="inline-block text-normal font-semibold">
-                      Group 1
-                    </p>
-                    <i
-                      class="inline-block fas fa-ellipsis-v float-right mt-1 text-gray-500"
-                    ></i>
-                    <p class="block text-sm text-gray-600">
-                      Amanda, Benny, Carson, Darwin
-                    </p>
-                    <button
-                      @click.prevent="goToBreakout(1, 1)"
-                      class="block bg-orange-500 hover:bg-orange-400 focus:outline-none focus:shadow-outline-none text-white text-xs font-bold py-1 px-4 mt-2 rounded items-center"
-                    >
-                      <span>Join Group</span>
-                    </button>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <div class="w-1/3 px-2 mb-4">
-              <a href="#">
-                <div class="bg-white p-2 rounded hover:shadow-md">
-                  <div class="bg-gray-300 rounded w-full p-3 h-48">
-                    <p class="text-center">Video goes here</p>
-                  </div>
-                  <div class="px-3 py-2">
-                    <p class="inline-block text-normal font-semibold">
-                      Group 2
-                    </p>
-                    <i
-                      class="inline-block fas fa-ellipsis-v float-right mt-1 text-gray-500"
-                    ></i>
-                    <p class="block text-sm text-gray-600">
-                      Amanda, Benny, Carson, Darwin
-                    </p>
-                    <button
-                      class="block bg-orange-500 hover:bg-orange-400 focus:outline-none focus:shadow-outline-none text-white text-xs font-bold py-1 px-4 mt-2 rounded items-center"
-                    >
-                      <span>Join Group</span>
-                    </button>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <div class="w-1/3 px-2 mb-4">
-              <a href="#">
-                <div class="bg-white p-2 rounded hover:shadow-md">
-                  <div class="bg-gray-300 rounded w-full p-3 h-48">
-                    <p class="text-center">Video goes here</p>
-                  </div>
-                  <div class="px-3 py-2">
-                    <p class="inline-block text-normal font-semibold">
-                      Group 3
-                    </p>
-                    <i
-                      class="inline-block fas fa-ellipsis-v float-right mt-1 text-gray-500"
-                    ></i>
-                    <p class="block text-sm text-gray-600">
-                      Amanda, Benny, Carson, Darwin
-                    </p>
-                    <button
-                      class="block bg-orange-500 hover:bg-orange-400 focus:outline-none focus:shadow-outline-none text-white text-xs font-bold py-1 px-4 mt-2 rounded items-center"
-                    >
-                      <span>Join Group</span>
-                    </button>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <div class="w-1/3 px-2 mb-4">
-              <a href="#">
-                <div class="bg-white p-2 rounded hover:shadow-md">
-                  <div class="bg-gray-300 rounded w-full p-3 h-48">
-                    <p class="text-center">Video goes here</p>
-                  </div>
-                  <div class="px-3 py-2">
-                    <p class="inline-block text-normal font-semibold">
-                      Group 4
-                    </p>
-                    <i
-                      class="inline-block fas fa-ellipsis-v float-right mt-1 text-gray-500"
-                    ></i>
-                    <p class="block text-sm text-gray-600">
-                      Amanda, Benny, Carson, Darwin
-                    </p>
-                    <button
-                      class="block bg-orange-500 hover:bg-orange-400 focus:outline-none focus:shadow-outline-none text-white text-xs font-bold py-1 px-4 mt-2 rounded items-center"
-                    >
-                      <span>Join Group</span>
-                    </button>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <div class="w-1/3 px-2 mb-4">
-              <a href="#">
-                <div class="bg-white p-2 rounded hover:shadow-md">
-                  <div class="bg-gray-300 rounded w-full p-3 h-48">
-                    <p class="text-center">Video goes here</p>
-                  </div>
-                  <div class="px-3 py-2">
-                    <p class="inline-block text-normal font-semibold">
-                      Group 5
-                    </p>
-                    <i
-                      class="inline-block fas fa-ellipsis-v float-right mt-1 text-gray-500"
-                    ></i>
-                    <p class="block text-sm text-gray-600">
-                      Amanda, Benny, Carson, Darwin
-                    </p>
-                    <button
-                      class="block bg-orange-500 hover:bg-orange-400 focus:outline-none focus:shadow-outline-none text-white text-xs font-bold py-1 px-4 mt-2 rounded items-center"
-                    >
-                      <span>Join Group</span>
-                    </button>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <div class="w-1/3 px-2 mb-4">
-              <a href="#">
-                <div class="bg-white p-2 rounded hover:shadow-md">
-                  <div class="bg-gray-300 rounded w-full p-3 h-48">
-                    <p class="text-center">Video goes here</p>
-                  </div>
-                  <div class="px-3 py-2">
-                    <p class="inline-block text-normal font-semibold">
-                      Group 6
-                    </p>
-                    <i
-                      class="inline-block fas fa-ellipsis-v float-right mt-1 text-gray-500"
-                    ></i>
-                    <p class="block text-sm text-gray-600">
-                      Amanda, Benny, Carson, Darwin
-                    </p>
-                    <button
-                      class="block bg-orange-500 hover:bg-orange-400 focus:outline-none focus:shadow-outline-none text-white text-xs font-bold py-1 px-4 mt-2 rounded items-center"
-                    >
-                      <span>Join Group</span>
-                    </button>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <div class="w-1/3 px-2 mb-4">
-              <a href="#">
-                <div class="bg-white p-2 rounded hover:shadow-md">
-                  <div class="bg-gray-300 rounded w-full p-3 h-48">
-                    <p class="text-center">Video goes here</p>
-                  </div>
-                  <div class="px-3 py-2">
-                    <p class="inline-block text-normal font-semibold">
-                      Group 7
-                    </p>
-                    <i
-                      class="inline-block fas fa-ellipsis-v float-right mt-1 text-gray-500"
-                    ></i>
-                    <p class="block text-sm text-gray-600">
-                      Amanda, Benny, Carson, Darwin
-                    </p>
-                    <button
-                      class="block bg-orange-500 hover:bg-orange-400 focus:outline-none focus:shadow-outline-none text-white text-xs font-bold py-1 px-4 mt-2 rounded items-center"
-                    >
-                      <span>Join Group</span>
-                    </button>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <div class="w-1/3 px-2 mb-4">
-              <a href="#">
-                <div class="bg-white p-2 rounded hover:shadow-md">
-                  <div class="bg-gray-300 rounded w-full p-3 h-48">
-                    <p class="text-center">Video goes here</p>
-                  </div>
-                  <div class="px-3 py-2">
-                    <p class="inline-block text-normal font-semibold">
-                      Group 8
-                    </p>
-                    <i
-                      class="inline-block fas fa-ellipsis-v float-right mt-1 text-gray-500"
-                    ></i>
-                    <p class="block text-sm text-gray-600">
-                      Amanda, Benny, Carson, Darwin
-                    </p>
-                    <button
-                      class="block bg-orange-500 hover:bg-orange-400 focus:outline-none focus:shadow-outline-none text-white text-xs font-bold py-1 px-4 mt-2 rounded items-center"
-                    >
-                      <span>Join Group</span>
-                    </button>
-                  </div>
-                </div>
-              </a>
-            </div>
+            <CardBreakout v-for="group in groups" :key="group.id" :group="group" />
           </div>
         </div>
       </div>
@@ -386,6 +179,8 @@
 
 <script>
 import Navbar from "@/components/Navbar.vue";
+import CardBreakout from "@/components/CardBreakout.vue";
+import { mapActions, mapState } from "vuex";
 export default {
   name: "Breakout",
 
@@ -394,8 +189,13 @@ export default {
   },
   components: {
     Navbar,
+    CardBreakout
+  },
+  computed: {
+    ...mapState("workGroups", ["groups"]),
   },
   methods: {
+    ...mapActions("workGroups", ["getGroups", "realtimeGroups"]),
     goToBreakout(class_id, work_group_id) {
       this.$router.push({
         name: `BreakoutGroupStudent`,
@@ -406,6 +206,10 @@ export default {
       });
     },
   },
+  created() {
+    this.realtimeGroups()
+    this.getGroups()
+  }
 };
 </script>
 
