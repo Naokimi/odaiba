@@ -4,6 +4,7 @@
     <div class="flex p-6 mb-4">
       <div class="w-1/4 px-4">
         <button
+          @click.prevent="$router.push(`/teachers/dashboard`)"
           class="bg-white hover:bg-gray-200 text-gray-700 font-bold py-2 px-4 mb-6 rounded-lg inline-flex items-center"
         >
           <i class="fas fa-reply mr-3"></i>
@@ -185,6 +186,7 @@
                       Amanda, Benny, Carson, Darwin
                     </p>
                     <button
+                      @click.prevent="goToBreakout(1, 1)"
                       class="block bg-orange-500 hover:bg-orange-400 focus:outline-none focus:shadow-outline-none text-white text-xs font-bold py-1 px-4 mt-2 rounded items-center"
                     >
                       <span>Join Group</span>
@@ -392,6 +394,17 @@ export default {
   },
   components: {
     Navbar,
+  },
+  methods: {
+    goToBreakout(class_id, work_group_id) {
+      this.$router.push({
+        name: `BreakoutGroupStudent`,
+        params: {
+          class_id: 1,
+          work_group_id: 1,
+        },
+      });
+    },
   },
 };
 </script>
