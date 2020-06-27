@@ -3,3 +3,5 @@ http://localhost:8080/login/students
 http://localhost:8080/login/teachers
 
 dashboard page
+
+const tokenB = RtcTokenBuilder.buildTokenWithAccount("facc2f66a4394574a83a612d93852cb9", "734be6d2bea74a9c8b9d5be7f8acf19d", "room-1", null, 1, privilegeExpiredTs);
