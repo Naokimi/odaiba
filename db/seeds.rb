@@ -9,8 +9,9 @@ require 'faker'
 
 p 'emptying database'
 
-Worksheet.destroy_all
 StudentWorkGroup.destroy_all
+GroupWorkSheet.destroy_all
+Worksheet.destroy_all
 WorkGroup.destroy_all
 Classroom.destroy_all
 Student.destroy_all
@@ -32,14 +33,26 @@ p "Finished creating #{Student.count} students"
 
 p 'creating classroom'
 
-Classroom.create!(teacher: Teacher.first)
+Classroom.create!(
+  teacher: Teacher.first,
+  name: '4B',
+  subject: 'English',
+  start_time: DateTime.new(2020,6,28,10,30),
+  end_time: DateTime.new(2020,6,28,11,20)
+  )
 
 p "Finished creating #{Classroom.count} classroom"
 
 p 'creating work groups'
 
 (1..5).to_a.each do |number|
-  WorkGroup.create!(name: "Group #{number}", video_call_code: 'abc', classroom: Classroom.first)
+  WorkGroup.create!(
+    name: "Group #{number}",
+    video_call_code: 'abc',
+    classroom: Classroom.first,
+    time_limit: 12,
+    rotation_time: 3
+    )
 end
 
 p "Finished creating #{WorkGroup.count} work groups"
@@ -70,10 +83,20 @@ p 'creating worksheets'
       1 => ['hashiru', 'run', 'ran', 'run'],
       2 => ['iu', 'say', 'said', 'said']
     }.to_json,
-    work_group: work_groups[number]
+    name: "Past Tense #{number + 1}"
   )
 end
 
 p "Finished creating #{Worksheet.count} worksheets"
+
+p 'assigning worksheets to work groups'
+
+worksheets = Worksheet.all
+work_groups = WorkGroup.all
+worksheets.each_with_index do |worksheet, index|
+  GroupWorkSheet.create!(worksheet: worksheet, work_group: work_groups[index])
+end
+
+p 'Finished assigning worksheets to work groups'
 
 p 'finished'

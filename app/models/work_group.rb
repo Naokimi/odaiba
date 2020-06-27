@@ -4,6 +4,8 @@
 #
 #  id              :bigint           not null, primary key
 #  name            :string
+#  rotation_time   :integer
+#  time_limit      :integer
 #  video_call_code :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
