@@ -69,10 +69,11 @@
               />
             </div>
 
-            <a
+            <router-link
+              to="/login/teachers"
               class="my-6 block text-lg text-orange-500 hover:text-orange-400 text-right"
               href="#"
-              >Forgot password</a
+              >Login as teacher</router-link
             >
             <button
               class="my-5 -mb-1 block text-center bg-teal-400 hover:bg-teal-300 text-white font-bold py-4 px-4 border-b-4 border-teal-500 hover:border-teal-400 rounded-full uppercase tracking-wider"
@@ -106,8 +107,8 @@ export default {
 
   data() {
     return {
-      username: "kentakimura",
-      password: "kentakimura",
+      username: "dzakki",
+      password: "dzakki",
     };
   },
   methods: {

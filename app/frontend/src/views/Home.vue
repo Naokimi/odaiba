@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul>
-      <li><router-link to="/login/students">/login/students</router-link></li>
+      <li><router-link to="/login/students">/login</router-link></li>
       <li><router-link to="/login/teachers">/login/teachers</router-link></li>
       <li>
         <router-link to="/classrooms/1/work_groups/"
