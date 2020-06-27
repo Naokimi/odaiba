@@ -18,5 +18,5 @@
 #  fk_rails_...  (work_group_id => work_groups.id)
 #
 class Worksheet < ApplicationRecord
-  belongs_to :work_group
+  has_many :work_groups, through: :group_work_sheets
 end
