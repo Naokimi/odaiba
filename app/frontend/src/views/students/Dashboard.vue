@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Navbar />
     <div>
       <h2>my class room</h2>
       <ul>
@@ -31,9 +32,13 @@
 </template>
 
 <script>
+import Navbar from "@/components/Navbar.vue";
+
 export default {
   name: "Dashboard",
-
+  components: {
+    Navbar,
+  },
   data() {
     return {};
   },
