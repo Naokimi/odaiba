@@ -75,13 +75,29 @@ p 'creating worksheets'
       headers: ['japanese', 'english', 'past', 'past participle'],
       example: ['hajimeru', 'begin', 'began', 'begun'],
       1 => ['hashiru', 'run', false, false],
-      2 => ['iu', 'say', false, false]
+      2 => ['iu', 'say', false, false],
+      3 => ['miru', 'see', false, false],
+      4 => ['uru', 'sell', false, false],
+      5 => ['okuru', 'send', false, false],
+      6 => ['miseru', 'show', false, false],
+      7 => ['utau', 'sing', false, false],
+      8 => ['suwaru', 'sit', false, false],
+      9 => ['hanasu', 'speak', false, false],
+      10 => ['yomu', 'read', false, false]
     }.to_json,
     correct_content: {
       headers: ['japanese', 'english', 'past', 'past participle'],
       example: ['hajimeru', 'begin', 'began', 'begun'],
       1 => ['hashiru', 'run', 'ran', 'run'],
-      2 => ['iu', 'say', 'said', 'said']
+      2 => ['iu', 'say', 'said', 'said'],
+      3 => ['miru', 'see', 'saw', 'seen'],
+      4 => ['uru', 'sell', 'sold', 'sold'],
+      5 => ['okuru', 'send', 'sent', 'sent'],
+      6 => ['miseru', 'show', 'showed', 'shown'],
+      7 => ['utau', 'sing', 'sang', 'sung'],
+      8 => ['suwaru', 'sit', 'sat', 'sat'],
+      9 => ['hanasu', 'speak', 'spoke', 'spoken'],
+      10 => ['yomu', 'read', 'read', 'read']
     }.to_json,
     name: "Past Tense #{number + 1}"
   )
