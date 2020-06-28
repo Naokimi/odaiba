@@ -120,14 +120,14 @@ io.on("connection", (socket) => {
   console.log("a user connected");
   socket.on("getGroups", function(to) {
     socket.emit(to, db.groups);
-    turn_time(60 * 5, 0, () => {
-      socket.emit(to);
-      socket.emit("realtime-groups");
-    });
-    turn_time(60 * 5, 1, () => {
-      socket.emit(to);
-      socket.emit("realtime-groups");
-    });
+    // turn_time(60 * 5, 0, () => {
+    //   socket.emit(to);
+    //   socket.emit("realtime-groups");
+    // });
+    // turn_time(60 * 5, 1, () => {
+    //   socket.emit(to);
+    //   socket.emit("realtime-groups");
+    // });
   });
 
   // socket.on()
@@ -140,7 +140,9 @@ io.on("connection", (socket) => {
     console.log(indexGroup, "indexGroup");
     db.groups[indexGroup].sheets = sheets;
     // console.log(db.groups[indexGroup].sheets)
-    realtimeGroup();
+    if (sheets.length) {
+      realtimeGroup();
+    }
     console.log(db.groups[0].answered);
     console.log(db.groups[0].score);
     io.emit("realtime-groups", db.groups);
@@ -222,6 +224,102 @@ function turn_time(seconds, index, cb) {
     }
   }, 1000);
 }
+
+app.get("/reset", (req, res) => {
+  db = {
+    groups: [
+      {
+        id: 1,
+        name: "Group 1",
+        video_call_code: "abc",
+        turn_time: 60 * 5,
+        session_time: 60 * 15,
+        status: "onprogress",
+        users: [
+          {
+            id: 1,
+            name: "Dzakki",
+            isTeacher: false,
+            join: false,
+            turn: true,
+          },
+          {
+            id: 2,
+            name: "Myra",
+            isTeacher: false,
+            join: false,
+            turn: false,
+          },
+          {
+            id: 3,
+            name: "Paolo",
+            isTeacher: false,
+            join: false,
+            turn: false,
+          },
+          {
+            id: 4,
+            name: "Anh",
+            isTeacher: false,
+            join: false,
+            turn: false,
+          },
+          // {
+          //   id: 5,
+          //   name: "Julen",
+          //   isTeacher: true,
+          //   join: false,
+          //   turn: false
+          // },
+        ],
+        classroom_id: 1,
+        score: 0,
+        answered: 0,
+        sheets: [],
+        created_at: "2020-06-27T11:50:20.840Z",
+        updated_at: "2020-06-27T11:50:20.840Z",
+      },
+      {
+        id: 2,
+        name: "Group 2",
+        video_call_code: "abc",
+        turn_time: 60 * 5,
+        session_time: 60 * 15,
+        status: "onprogress",
+        users: [
+          {
+            id: 1,
+            name: "Julen",
+            isTeacher: false,
+            join: false,
+            turn: true,
+          },
+          {
+            id: 2,
+            name: "Myra",
+            isTeacher: false,
+            join: false,
+            turn: false,
+          },
+          {
+            id: 3,
+            name: "Paolo",
+            isTeacher: false,
+            join: false,
+            turn: false,
+          },
+        ],
+        classroom_id: 1,
+        score: 0,
+        answered: 0,
+        sheets: [],
+        created_at: "2020-06-27T11:50:20.840Z",
+        updated_at: "2020-06-27T11:50:20.840Z",
+      },
+    ],
+  };
+  res.json(db);
+});
 
 const PORT = process.env.PORT || 3001;
 
