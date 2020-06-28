@@ -57,16 +57,7 @@
                     </tr>
                   </tbody>
                 </table>
-
                 <button
-                  v-if="count <= 5"
-                  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-3"
-                  @click="newQ"
-                >
-                  More Tasks
-                </button>
-                <button
-                  v-if="count > 5"
                   @click="submit = true"
                   class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-3"
                 >

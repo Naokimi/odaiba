@@ -79,20 +79,41 @@ export default {
           const questions = JSON.parse(data.display_content);
           console.log(questions);
           const answers = JSON.parse(data.correct_content);
+
           const sheetsTemp = [
-            {
-              questions: questions[1],
-              answers: answers[1],
-              id: data.id,
-              idKey: Math.random(),
-            },
-            {
-              questions: questions[2],
-              answers: answers[2],
-              id: data.id,
-              idKey: Math.random(),
-            },
+            // {
+            //   questions: questions[1],
+            //   answers: answers[1],
+            //   id: data.id,
+            //   idKey: Math.random(),
+            // },
+            // {
+            //   questions: questions[2],
+            //   answers: answers[2],
+            //   id: data.id,
+            //   idKey: Math.random(),
+            // },
           ];
+
+          // console.log(questions);
+          for (var i = 1; i <= 10; i++) {
+            sheetsTemp.push({
+              questions: questions[i],
+              answers: answers[i],
+              id: data.id,
+              idKey: Math.random(),
+            });
+          }
+          console.log(sheetsTemp);
+          console.log(questions);
+          // questions.forEach((qs) => {
+          //   sheetsTemp.push({
+          //     questions: questions[1],
+          //     answers: answers[1],
+          //     id: data.id,
+          //     idKey: Math.random(),
+          //   });
+          // });
           // console.log(sheet);
           // if () {}
           sheets.push(...sheetsTemp);
