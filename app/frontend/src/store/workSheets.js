@@ -34,6 +34,14 @@ export default {
       });
       state.count++;
     },
+    CLEAR_SHEETS(state, payload) {
+      state.sheets = [];
+      state.count = 1;
+      socket.emit("updateSheet", {
+        sheets: [],
+        groupid: state.groupid,
+      });
+    },
     INPUT_ANSWER(state, payload) {
       /* {
         indexArray,
@@ -86,6 +94,7 @@ export default {
             },
           ];
           // console.log(sheet);
+          // if () {}
           sheets.push(...sheetsTemp);
           console.log(sheets);
           commit("SET_SHEETS", sheets);

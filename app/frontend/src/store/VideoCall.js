@@ -6,14 +6,14 @@ export default {
   namespaced: true,
   state: {
     option: {
-      appID: "e11c6335df4e414f9ccaf06641ec18f4",
+      appID: "facc2f66a4394574a83a612d93852cb9",
       channel: "1",
       // token:
       //   "006facc2f66a4394574a83a612d93852cb9IAC+HrPAAG3NYrYhG7SokgyIujHQMk+64uAXzidazLAl7yo6c+RXoFHlIgCZSlYvXCn4XgQAAQDs5fZeAgDs5fZeAwDs5fZeBADs5fZe",
       // token:
       //   "006facc2f66a4394574a83a612d93852cb9IABxBXb7J5dQ6CPrMxjzDi91OhHt8g/pkOyjh/gao00zPyo6c+RXoFHlIgDhFPw9ryj4XgQAAQA/5fZeAgA/5fZeAwA/5fZeBAA/5fZe",
       token:
-        "006e11c6335df4e414f9ccaf06641ec18f4IACBfq8QcnkfTtsNpOVfSPg6RK3+VY65JybOtjj1teL4Zrfv3IMAAAAAEACzAjOTFxb4XgEAAQAXFvhe",
+        "006facc2f66a4394574a83a612d93852cb9IAA+32TgEt59ONx+5xKgQztI6fHIKNtUdQPn1GFZVdvnN7fv3IMAAAAAEAA/+CcILmj5XgEAAQAuaPle",
       uid: "",
       cameraId:
         "8e894bbd72c0fbe871464fa7df1480e12b48ae73ac6a5bf9aa909c6a29e96d28",
@@ -47,7 +47,7 @@ export default {
       // const { id, show } = payload;
       if (!$("#" + payload)[0]) {
         let html = `
-          <div class="w-1/3 px-2 mb-4">
+          <div class="w-1/3 px-2 mb-4" id="remote_video_head_${payload}">
             <div class="flex">
               <div
                 class="inline h-auto w-2 text-lg rounded-lg rounded-r-none bg-blue-400"
@@ -80,8 +80,8 @@ export default {
     },
 
     removeView(_, id) {
-      if ($("#remote_video_panel_" + id)[0]) {
-        $("#remote_video_panel_" + id).remove();
+      if ($("#remote_video_head_" + id)[0]) {
+        $("#remote_video_head_" + id).remove();
       }
     },
 

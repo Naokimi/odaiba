@@ -6,14 +6,14 @@ export default {
   namespaced: true,
   state: {
     option: {
-      appID: "e11c6335df4e414f9ccaf06641ec18f4",
+      appID: "facc2f66a4394574a83a612d93852cb9",
       channel: "1",
       // token:
       //   "006facc2f66a4394574a83a612d93852cb9IAC+HrPAAG3NYrYhG7SokgyIujHQMk+64uAXzidazLAl7yo6c+RXoFHlIgCZSlYvXCn4XgQAAQDs5fZeAgDs5fZeAwDs5fZeBADs5fZe",
       // token:
       //   "006facc2f66a4394574a83a612d93852cb9IABxBXb7J5dQ6CPrMxjzDi91OhHt8g/pkOyjh/gao00zPyo6c+RXoFHlIgDhFPw9ryj4XgQAAQA/5fZeAgA/5fZeAwA/5fZeBAA/5fZe",
       token:
-        "006e11c6335df4e414f9ccaf06641ec18f4IACBfq8QcnkfTtsNpOVfSPg6RK3+VY65JybOtjj1teL4Zrfv3IMAAAAAEACzAjOTFxb4XgEAAQAXFvhe",
+        "006facc2f66a4394574a83a612d93852cb9IAA+32TgEt59ONx+5xKgQztI6fHIKNtUdQPn1GFZVdvnN7fv3IMAAAAAEAA/+CcILmj5XgEAAQAuaPle",
       uid: "",
       cameraId:
         "8e894bbd72c0fbe871464fa7df1480e12b48ae73ac6a5bf9aa909c6a29e96d28",
@@ -48,17 +48,17 @@ export default {
       if (!$("#" + payload)[0]) {
         $("<div/>", {
           id: "remote_video_panel_" + payload,
-          class: "video-view",
+          class: "video-view hide",
         }).appendTo("#video");
 
         $("<div/>", {
           id: "remote_video_" + payload,
-          class: "video-placeholder",
+          class: "video-placeholder hide",
         }).appendTo("#remote_video_panel_" + payload);
 
         $("<div/>", {
           id: "remote_video_info_" + payload,
-          class: "video-profile " + (payload.show ? "" : "hide"),
+          class: "video-profile hide" + (payload.show ? "" : "hide"),
         }).appendTo("#remote_video_panel_" + payload);
 
         $("<div/>", {
@@ -279,13 +279,14 @@ export default {
                 microphoneId: state.option.microphoneId,
                 // cameraId: state.option.cameraId,
               });
+              state.rtc.localStream.stop();
 
               // initialize local stream. Callback function executed after intitialization is done
               state.rtc.localStream.init(
                 function() {
                   console.log("init local stream success");
                   // play stream with html element id "local_stream"
-                  state.rtc.localStream.play("local_stream");
+                  // state.rtc.localStream.play("local_stream");
 
                   // publish local stream
                   dispatch("publish", state.rtc);

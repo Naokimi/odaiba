@@ -13,7 +13,22 @@
               </div>
               <hr class="w-full border border-gray-300" />
             </div>
-
+            <div class="flex flex-wrap -mx-2 ml-2 mb-3">
+              <button
+                v-if="!statusJoin"
+                class="inline bg-blue-500 hover:bg-blue-400 focus:outline-none focus:shadow-outline-none text-white text-sm font-bold py-2 px-6 mt-2 rounded items-center"
+                @click="joinRoom"
+              >
+                <span>Join video</span>
+              </button>
+              <button
+                v-if="statusJoin"
+                class="ml-3 inline bg-blue-500 hover:bg-blue-400 focus:outline-none focus:shadow-outline-none text-white text-sm font-bold py-2 px-6 mt-2 rounded items-center"
+                @click="leaveRoom"
+              >
+                <span>Leave video</span>
+              </button>
+            </div>
             <div class="flex flex-wrap -mx-2" id="video">
               <div class="w-1/3 px-2 mb-4">
                 <div class="flex">
@@ -67,41 +82,6 @@
         </div>
       </div>
     </div>
-
-    <div class="row">
-      <div class="col">
-        <button
-          class="btn btn-raised btn-primary waves-effect waves-light"
-          id="join"
-          @click="join"
-        >
-          JOIN
-        </button>
-        <button
-          class="btn btn-raised btn-primary waves-effect waves-light"
-          id="leave"
-          @click="leave"
-        >
-          leave
-        </button>
-        <!--         <button
-          class="btn btn-raised btn-primary waves-effect waves-light"
-          id="join"
-          @click="leave"
-        >
-          Leave
-        </button> -->
-      </div>
-    </div>
-    <!-- <div class="agora-theme">
-      <div class="video-grid" id="video">
-        <div class="video-view">
-          <div id="local_stream" class="video-placeholder"></div>
-          <div id="local_video_info" class="video-profile hide"></div>
-          <div id="video_autoplay_local" class="autoplay-fallback hide"></div>
-        </div>
-      </div>
-    </div> -->
   </div>
 </template>
 
@@ -117,7 +97,9 @@ export default {
     Navbar,
   },
   data() {
-    return {};
+    return {
+      statusJoin: false,
+    };
   },
   computed: {
     ...mapState("VideoCall", ["option"]),
@@ -125,7 +107,12 @@ export default {
   methods: {
     ...mapActions("VideoCall", ["getDevices", "join", "leave"]),
     joinRoom() {
+      this.statusJoin = true;
       this.join();
+    },
+    leaveRoom() {
+      this.statusJoin = false;
+      this.leave();
     },
   },
   mounted() {
@@ -202,7 +189,7 @@ video {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
+  /*position: absolute;*/
   width: 100%;
   height: 100%;
   top: 0;
@@ -210,7 +197,6 @@ video {
   cursor: pointer;
 }
 .autoplay-fallback::after {
-  content: "click here to play";
   font-size: 1.5rem;
   opacity: 0.9;
   text-shadow: black 0.1em 0.1em 0.2em;

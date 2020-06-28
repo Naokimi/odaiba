@@ -67,9 +67,10 @@
                 </button>
                 <button
                   v-if="count > 5"
+                  @click="submit = true"
                   class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-3"
                 >
-                  Submit!
+                  {{ submit ? "Submitted!" : "Submit" }}
                 </button>
               </div>
             </div>
@@ -109,7 +110,7 @@
                 >
                   <img
                     class="w-8 mr-4 bg-white rounded-full inline"
-                    src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/c3fa12ba-dbc1-4c80-bb2b-efcb1e8a4273/icons8-finn-96.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20200626%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20200626T110244Z&X-Amz-Expires=86400&X-Amz-Signature=0fc60a68d61741cfb3b9aac08959cbcd5c8b25db5f409fdadc98ccf77b3a778c&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22icons8-finn-96.png%22"
+                    :src="require('../../assets/student-avatar.png')"
                     alt="student-avatar"
                   />
                   <p class="text-lg inline">{{ member.name }}</p>
@@ -126,13 +127,28 @@
                   <i class="fas fa-hand-paper fa-2x text-gray-700"></i>
                 </div>
               </a>
-              <a class="w-1/3 mr-auto" href="#">
+              <button
+                class="w-1/3 mr-auto"
+                @click="leaveAudio"
+                v-if="audioStatus"
+              >
+                <div
+                  class="flex-none h-20 w-20 text-center bg-white hover:bg-orange-500 py-6 px-5 ml-6 rounded-full"
+                >
+                  <i class="fas fa-microphone fa-2x text-gray-700"></i>
+                </div>
+              </button>
+              <button
+                class="w-1/3 mr-auto"
+                @click="joinAudio"
+                v-if="!audioStatus"
+              >
                 <div
                   class="flex-none h-20 w-20 text-center bg-white hover:bg-orange-500 py-6 px-5 ml-6 rounded-full"
                 >
                   <i class="fas fa-microphone-slash fa-2x text-gray-700"></i>
                 </div>
-              </a>
+              </button>
             </div>
           </div>
         </div>
@@ -153,7 +169,10 @@ import { mapActions, mapState, mapMutations } from "vuex";
 export default {
   name: "BreakoutGroup",
   data() {
-    return {};
+    return {
+      audioStatus: false,
+      submit: false,
+    };
   },
   components: {
     Navbar,
@@ -193,7 +212,21 @@ export default {
       "GetGroups",
       "ListenGroups",
     ]),
-    ...mapMutations("workSheets", ["SET_GROUPID"]),
+    ...mapActions("AudioCall", ["join", "leave", "getDevices"]),
+    ...mapMutations("workSheets", [
+      "SET_GROUPID",
+      "SET_SHEETS",
+      "CLEAR_SHEETS",
+    ]),
+    leaveAudio() {
+      console.log("==");
+      this.audioStatus = false;
+      this.leave();
+    },
+    joinAudio() {
+      this.audioStatus = true;
+      this.join();
+    },
     answerQ() {
       //answer question
     },
@@ -202,8 +235,12 @@ export default {
       this.NewQuestion();
     },
   },
+  destroy() {
+    this.CLEAR_SHEETS();
+  },
   created() {
     this.SET_GROUPID(this.$route.params.work_group_id);
+    this.CLEAR_SHEETS();
     this.ListenGroups();
     this.getWorkSheets();
     this.UpdateAnswer();
@@ -218,4 +255,8 @@ export default {
 };
 </script>
 
-<style lang="css" scoped></style>
+<style lang="css" scoped>
+.hide {
+  display: none;
+}
+</style>
