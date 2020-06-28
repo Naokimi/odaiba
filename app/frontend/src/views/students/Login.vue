@@ -92,9 +92,7 @@
     >
       <a href="#">
         <div class="items-center flex-shrink-0 text-white m-auto w-32">
-          <img
-            src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/fc492df2-4463-4e08-b4a2-1c6f7708db10/odaiba-logo-icon-inverted-2.svg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20200627%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20200627T013208Z&X-Amz-Expires=86400&X-Amz-Signature=b2834e8461b80e30407742e0f0e41ba300e149c4aa6b5bdfbc7d6b2b0d5a559c&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22odaiba-logo-icon-inverted-2.svg%22"
-          />
+          <img :src="require('../../assets/odaiba-logo-icon-inverted-2.svg')" />
         </div>
       </a>
     </div>

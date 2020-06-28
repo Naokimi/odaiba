@@ -23,9 +23,8 @@ export default {
         this.seconds = this.seconds < 10 ? "0" + this.seconds : this.seconds;
 
         if (--timer < 0) {
-          this.minutes = "00";
-          this.seconds = "00";
-          clearInterval(interval);
+          timer = this.duration;
+          // clearInterval(interval);
         }
       }, 1000);
     },

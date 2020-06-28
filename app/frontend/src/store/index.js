@@ -7,7 +7,7 @@ import classRooms from "./classRooms";
 import workGroups from "./workGroups";
 import workSheets from "./workSheets";
 import VideoCall from "./VideoCall";
-import AudioCall from "./VideoCall";
+import AudioCall from "./AudioCall";
 
 Vue.use(Vuex);
 

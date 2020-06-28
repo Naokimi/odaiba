@@ -47,7 +47,7 @@ export default {
       // const { id, show } = payload;
       if (!$("#" + payload)[0]) {
         let html = `
-          <div class="w-1/3 px-2 mb-4">
+          <div class="w-1/3 px-2 mb-4" id="remote_video_head_${payload}">
             <div class="flex">
               <div
                 class="inline h-auto w-2 text-lg rounded-lg rounded-r-none bg-blue-400"
@@ -80,8 +80,8 @@ export default {
     },
 
     removeView(_, id) {
-      if ($("#remote_video_panel_" + id)[0]) {
-        $("#remote_video_panel_" + id).remove();
+      if ($("#remote_video_head_" + id)[0]) {
+        $("#remote_video_head_" + id).remove();
       }
     },
 

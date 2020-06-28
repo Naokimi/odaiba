@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="video-grid" id="video">
+    <div class="video-grid" id="video" style="display:none;">
       <div class="video-view">
         <div id="local_stream" class="video-placeholder"></div>
         <div id="local_video_info" class="video-profile hide"></div>

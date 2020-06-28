@@ -48,17 +48,17 @@ export default {
       if (!$("#" + payload)[0]) {
         $("<div/>", {
           id: "remote_video_panel_" + payload,
-          class: "video-view",
+          class: "video-view hide",
         }).appendTo("#video");
 
         $("<div/>", {
           id: "remote_video_" + payload,
-          class: "video-placeholder",
+          class: "video-placeholder hide",
         }).appendTo("#remote_video_panel_" + payload);
 
         $("<div/>", {
           id: "remote_video_info_" + payload,
-          class: "video-profile " + (payload.show ? "" : "hide"),
+          class: "video-profile hide" + (payload.show ? "" : "hide"),
         }).appendTo("#remote_video_panel_" + payload);
 
         $("<div/>", {
@@ -279,13 +279,14 @@ export default {
                 microphoneId: state.option.microphoneId,
                 // cameraId: state.option.cameraId,
               });
+              state.rtc.localStream.stop();
 
               // initialize local stream. Callback function executed after intitialization is done
               state.rtc.localStream.init(
                 function() {
                   console.log("init local stream success");
                   // play stream with html element id "local_stream"
-                  state.rtc.localStream.play("local_stream");
+                  // state.rtc.localStream.play("local_stream");
 
                   // publish local stream
                   dispatch("publish", state.rtc);
