@@ -14,9 +14,9 @@
               <hr class="w-full border border-gray-300" />
             </div>
 
-            <div class="flex flex-wrap -mx-2">
+            <div class="flex flex-wrap -mx-2" id="video">
               <div class="w-1/3 px-2 mb-4">
-                <a class="flex" href="#">
+                <div class="flex">
                   <div
                     class="inline h-auto w-2 text-lg rounded-lg rounded-r-none bg-blue-400"
                   ></div>
@@ -24,16 +24,18 @@
                     class="inline w-full bg-gray-100 p-2 text-left rounded hover:shadow-md"
                   >
                     <div class="px-3 py-2">
-                      <p class="inline-block text-lg font-semibold mb-1">
-                        English
-                      </p>
-                      <div class="block text-sm text-gray-600">
-                        <p class="block">Class B</p>
-                        <p class="block">Ms Tachibana</p>
-                      </div>
+                      <div id="local_stream" class="video-placeholder"></div>
+                      <div
+                        id="local_video_info"
+                        class="video-profile hide"
+                      ></div>
+                      <div
+                        id="video_autoplay_local"
+                        class="autoplay-fallback hide"
+                      ></div>
                     </div>
                   </div>
-                </a>
+                </div>
               </div>
             </div>
           </div>
@@ -91,7 +93,7 @@
         </button> -->
       </div>
     </div>
-    <div class="agora-theme">
+    <!-- <div class="agora-theme">
       <div class="video-grid" id="video">
         <div class="video-view">
           <div id="local_stream" class="video-placeholder"></div>
@@ -99,7 +101,7 @@
           <div id="video_autoplay_local" class="autoplay-fallback hide"></div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -149,27 +151,34 @@ export default {
 <style lang="css" scoped>
 /*@import "../../assets/common.css";*/
 
-.agora-theme #local_stream {
+.video-placeholder {
+  position: relative;
+  height: 200px;
+}
+
+.video-placeholder div {
+}
+
+/*.video-placeholder div video {
+  position: relative !important;
+}*/
+
+video {
+  position: relative;
+}
+#local_stream {
   position: relative;
 }
 
-.agora-theme #local_video_info {
+#local_video_info {
   position: absolute;
 }
 
-.agora-theme .video-view {
+.video-view {
   position: relative;
 }
 
-.agora-theme .video-view,
-.agora-theme .video-placeholder,
-.agora-theme #local_stream,
-.agora-theme #local_video_info {
-  width: 480px;
-  height: 320px;
-}
-
-.agora-theme .video-profile {
+.video-profile {
   position: absolute;
   top: 0;
   left: 0;
@@ -182,14 +191,14 @@ export default {
   font-size: 10px;
 }
 
-.agora-theme .video-grid {
+.video-grid {
   display: flex;
   grid-gap: 20px;
   grid-template-columns: repeat(2, auto);
   grid-template-rows: auto;
 }
 
-.agora-theme .autoplay-fallback {
+.autoplay-fallback {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -200,7 +209,7 @@ export default {
   display: block;
   cursor: pointer;
 }
-.agora-theme .autoplay-fallback::after {
+.autoplay-fallback::after {
   content: "click here to play";
   font-size: 1.5rem;
   opacity: 0.9;
