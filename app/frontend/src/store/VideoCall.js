@@ -46,25 +46,36 @@ export default {
       console.log(payload, "====================");
       // const { id, show } = payload;
       if (!$("#" + payload)[0]) {
-        $("<div/>", {
-          id: "remote_video_panel_" + payload,
-          class: "video-view",
-        }).appendTo("#video");
-
-        $("<div/>", {
-          id: "remote_video_" + payload,
-          class: "video-placeholder",
-        }).appendTo("#remote_video_panel_" + payload);
-
-        $("<div/>", {
-          id: "remote_video_info_" + payload,
-          class: "video-profile " + (payload.show ? "" : "hide"),
-        }).appendTo("#remote_video_panel_" + payload);
-
-        $("<div/>", {
-          id: "video_autoplay_" + payload,
-          class: "autoplay-fallback hide",
-        }).appendTo("#remote_video_panel_" + payload);
+        let html = `
+          <div class="w-1/3 px-2 mb-4">
+            <div class="flex">
+              <div
+                class="inline h-auto w-2 text-lg rounded-lg rounded-r-none bg-blue-400"
+              ></div>
+              <div
+                class="inline w-full bg-gray-100 p-2 text-left rounded hover:shadow-md"
+              >
+                <div class="px-3 py-2" id="video_${payload} " style="height: 200px;">
+                  <div id="remote_video_panel_${payload}" class="video-view">
+                    <div id="remote_video_${payload}" class="video-placeholder"></div>
+                    <div id="remote_video_info_${payload}" class="video-profile hide"></div>
+                    <div id="video_autoplay_${payload}" class="autoplay-fallback hide"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+        $("#video").append(html);
+        /*<div id="remote_video_panel_${payload}" class="video-view">
+          <div id="remote_video_${payload}" class="video-placeholder"></div>
+          <div id="remote_video_info_${payload}" class="video-profile hide"></div>
+          <div id="video_autoplay_${payload}" class="autoplay-fallback hide"></div>
+        </div>
+        */
+        setTimeout(() => {
+          $("body video").css("position", "relative");
+        }, 2000);
       }
     },
 
@@ -404,3 +415,11 @@ export default {
     },
   },
 };
+
+/*
+
+#remote_video_panel_xxx .video-view
+  > remote_video_xxx  width: 100%; height: 100%; position: relative; background-color: black; overflow: hidden;
+    > videoxxxx width: 100%; height: 100%; position: absolute; object-fit: cover;
+    > audio4207947882
+*/
