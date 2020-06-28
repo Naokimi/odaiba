@@ -1,6 +1,7 @@
 import Axios from "axios";
 import io from "socket.io-client";
-const socket = io("http://localhost:3001");
+import { socket_url } from "../url";
+const socket = io(socket_url);
 
 export default {
   namespaced: true,
