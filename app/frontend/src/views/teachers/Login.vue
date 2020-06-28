@@ -11,7 +11,7 @@
     >
       <img
         class="flex-1 self-center p-40"
-        src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/1b44b716-7512-4b1b-a67a-53d9d47a61a8/odaiba-vertical.svg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20200627%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20200627T015040Z&X-Amz-Expires=86400&X-Amz-Signature=1fdf27a560a95151215c471d1379f7c3c161a0d882f06d69966e3696be9f5901&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22odaiba-vertical.svg%22"
+        :src="require('../../assets/odaiba-vertical.svg')"
         alt="logo"
       />
     </div>
@@ -92,7 +92,7 @@ export default {
         password: this.password,
         role: "teacher",
         cb: () => {
-          this.$router.replace("/teachers/dashboard");
+          this.$router.replace("/classrooms/1/work_groups");
         },
       });
     },
