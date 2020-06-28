@@ -26,7 +26,7 @@ module Odaiba
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
 
-    
+
     # enabled cors
     # please install rack-cors and add rack-cors to Gemfile
     config.middleware.insert_before 0, Rack::Cors do

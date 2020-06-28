@@ -4,6 +4,8 @@
 #
 #  id              :bigint           not null, primary key
 #  name            :string
+#  rotation_time   :integer
+#  time_limit      :integer
 #  video_call_code :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
@@ -19,6 +21,6 @@
 #
 class WorkGroup < ApplicationRecord
   belongs_to :classroom
-  has_many :worksheets, dependent: :destroy
+  has_many :worksheets, through: :group_work_sheets
   has_many :students, through: :student_work_groups
 end
