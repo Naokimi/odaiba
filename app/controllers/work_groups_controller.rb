@@ -3,6 +3,7 @@ class WorkGroupsController < ApplicationController
   def index
     @classroom = Classroom.find(params[:classroom_id])
     @work_groups = WorkGroup.all
+    @work_groups = policy_scope(WorkGroup)
     respond_to do |format|
       # FYI - Test on local host with: http://localhost:3000/classrooms/1/work_groups.json
       format.json { render json: @work_groups.to_json }
@@ -11,7 +12,7 @@ class WorkGroupsController < ApplicationController
 
   def show
     @work_group = WorkGroup.find(params[:id])
-    # authorize @work_group
+    authorize @work_group
     respond_to do |format|
       # FYI - Test on local host with: http://localhost:3000/classrooms/1/work_groups/1.json
       format.json { render json: @work_group.to_json }
@@ -22,7 +23,7 @@ class WorkGroupsController < ApplicationController
   def new
     @classroom = Classroom.find(params[:classroom_id])
     @work_group = WorkGroup.new
-    # authorize @work_group
+    authorize @work_group
     respond_to do |format|
       # FYI - Test on local host with: http://localhost:3000/classrooms/1/work_groups/new.json
       format.json { render json: @work_group.to_json }
@@ -33,6 +34,7 @@ class WorkGroupsController < ApplicationController
     @classroom = Classroom.find(params[:classroom_id])
     @work_group = WorkGroup.new(work_group_params)
     @work_group.classroom = @classroom
+    authorize @work_group
     if @work_group.save
       # redirect to the index of work_groups - choice made by Julien - please feel free to change where it redirects
       respond_to do |format|
